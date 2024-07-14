@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    /* max-width: 800px; */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-item {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.menu-item img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.menu-item h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.menu-item p {
+    margin: 5px 0;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Menu</h1>
+        
+        <% categories.forEach(category => { %>
+            <h2><%= category.name %></h2>
+            <ul class="menu-items">_
+                <% products.filter(product => product.category._id.toString() === category._id.toString()).forEach(item => { %>
+                    <li class="menu-item">
+                        <img src="<%= item.photo %>" alt="<%= item.name %>">
+                        <h3><%= item.name %></h3>
+                        <p><strong><%= item.price %> Sum</strong></p>
+                    </li>
+                <% }); %>
+            </ul>
+        <% }); %>
+    </div>
+</body>
+</html>
